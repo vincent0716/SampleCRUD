@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.EditEmployeeActivity">
+
+    <include layout="@layout/app_bar" android:id="@+id/appbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/iv_empImage"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1dp"
+
+                    app:shapeAppearanceOverlay="@style/circleImageView"
+                    />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="bottom|end"
+                    android:id="@+id/iv_chooseImage"
+                    android:src="@drawable/baseline_camera_alt_24"/>
+
+            </FrameLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                android:contentDescription="Country"
+                android:layout_marginVertical="5dp"
+                android:labelFor="@id/atv_country"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:id="@+id/til_country">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:padding="15dp"
+                    android:inputType="none"
+                    android:text=" "
+                    android:hint="Country"
+                    android:maxLines="1"
+                    android:id="@+id/atv_country"
+                    android:textColor="@color/black"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                android:contentDescription="Account Type"
+                android:layout_marginVertical="5dp"
+                android:labelFor="@id/atv_country"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:id="@+id/til_accountType">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:padding="15dp"
+                    android:inputType="none"
+                    android:text=" "
+                    android:hint="Account Type"
+                    android:id="@+id/atv_accType"
+                    android:textColor="@color/black"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                android:contentDescription="Username"
+                android:layout_marginVertical="5dp"
+                android:id="@+id/til_username">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:inputType="text"
+                    android:hint="Username"
+                    android:maxLines="1"
+                    android:maxLength="50"
+                    android:imeOptions="actionNext"
+                    android:id="@+id/edt_username"
+                    android:textColor="@color/black"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                android:contentDescription="Last Name"
+                android:layout_marginVertical="5dp"
+                android:id="@+id/til_lastName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:inputType="textCapSentences"
+                    android:hint="Last Name"
+                    android:maxLines="1"
+                    android:maxLength="50"
+                    android:imeOptions="actionNext"
+                    android:id="@+id/edt_lname"
+                    android:textColor="@color/black"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                android:contentDescription="First Name"
+                android:layout_marginVertical="5dp"
+                android:id="@+id/til_firstName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:inputType="textCapSentences"
+                    android:hint="First Name"
+                    android:maxLines="1"
+                    android:maxLength="50"
+                    android:imeOptions="actionNext"
+                    android:id="@+id/edt_fname"
+                    android:textColor="@color/black"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                android:contentDescription="Email Address"
+                android:layout_marginVertical="5dp"
+                android:id="@+id/til_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:inputType="textEmailAddress"
+                    android:hint="Email Address"
+                    android:maxLines="1"
+                    android:maxLength="50"
+                    android:imeOptions="actionNext"
+                    android:id="@+id/edt_email"
+                    android:textColor="@color/black"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusBottomStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                android:contentDescription="Contact Number"
+                android:layout_marginVertical="5dp"
+                android:id="@+id/til_contactNo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:inputType="number"
+                    android:hint="Contact No."
+                    android:maxLines="1"
+                    android:maxLength="12"
+                    android:imeOptions="actionDone"
+                    android:id="@+id/edt_contactNo"
+                    android:textColor="@color/black"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SAVE"
+                android:id="@+id/btn_save"
+                android:layout_marginVertical="5dp"
+                android:padding="10dp"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
