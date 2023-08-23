@@ -17,12 +17,12 @@
         <activity
             android:name=".Activity.EditEmployeeActivity"
             android:exported="false"
-            android:label="Edit Employee"
+            android:label="Edit Record"
             android:parentActivityName=".Activity.MainActivity" />
         <activity
             android:name=".Activity.EmployeeFormActivity"
             android:exported="false"
-            android:label="Add Employee"
+            android:label="Add Record"
             android:parentActivityName=".Activity.MainActivity" />
         <activity
             android:name=".Activity.MainActivity"

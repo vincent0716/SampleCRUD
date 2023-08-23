@@ -10,7 +10,7 @@ import com.vmccn.crud.Room.AppDatabase
 import kotlinx.coroutines.launch
 
 class EmplyeeViewModel : ViewModel() {
-    val employeeList : MutableLiveData<List<Employee>> = MutableLiveData()
+    val employeeList = MutableLiveData<List<Employee>>()
 
     var list : LiveData<List<Employee>> = employeeList
 
@@ -32,12 +32,22 @@ class EmplyeeViewModel : ViewModel() {
         }
     }
 
-    fun getAllEmployee (database: AppDatabase){
-        viewModelScope.launch {
-            list = database.employeeDao().showAllEmployee()
-
-        }
+    fun getAllEmployee (database: AppDatabase) : LiveData<List<Employee>>{
+        list = database.employeeDao().showAllEmployee()
+        return list
     }
+
+    /*fun searchEmployee (searchText : String,database: AppDatabase){
+       viewModelScope.launch {
+           if(searchText.isNotEmpty()){
+               val filterList = list.
+               Log.e("TAGGG", employeeList.value?.size.toString())
+           }
+
+
+
+       }
+    }*/
 
 
 

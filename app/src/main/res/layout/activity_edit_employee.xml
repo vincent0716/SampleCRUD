@@ -54,6 +54,7 @@
                 app:boxCornerRadiusTopStart="10dp"
                 android:contentDescription="Country"
                 android:layout_marginVertical="5dp"
+                app:errorEnabled="false"
                 android:labelFor="@id/atv_country"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:id="@+id/til_country">
@@ -81,6 +82,7 @@
                 app:boxCornerRadiusTopStart="10dp"
                 android:contentDescription="Account Type"
                 android:layout_marginVertical="5dp"
+                app:errorEnabled="false"
                 android:labelFor="@id/atv_country"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:id="@+id/til_accountType">
@@ -105,6 +107,7 @@
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
+                app:errorEnabled="false"
                 android:contentDescription="Username"
                 android:layout_marginVertical="5dp"
                 android:id="@+id/til_username">
@@ -131,6 +134,7 @@
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 android:contentDescription="Last Name"
+                app:errorEnabled="false"
                 android:layout_marginVertical="5dp"
                 android:id="@+id/til_lastName">
 
@@ -156,6 +160,7 @@
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 android:contentDescription="First Name"
+                app:errorEnabled="false"
                 android:layout_marginVertical="5dp"
                 android:id="@+id/til_firstName">
 
@@ -181,6 +186,7 @@
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 android:contentDescription="Email Address"
+                app:errorEnabled="false"
                 android:layout_marginVertical="5dp"
                 android:id="@+id/til_email">
 
@@ -207,6 +213,7 @@
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 android:contentDescription="Contact Number"
+                app:errorEnabled="false"
                 android:layout_marginVertical="5dp"
                 android:id="@+id/til_contactNo">
 

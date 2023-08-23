@@ -26,6 +26,6 @@ interface RoomDao {
     @Query("SELECT * FROM employee WHERE Id=(:id)")
     fun singleEmployee(id : Int) : Employee
 
-    @Query("SELECT * FROM employee WHERE FirstName OR LastNmae LIKE '%' || (:searchText) || '%'")
+    @Query("SELECT * FROM employee WHERE FirstName LIKE '%' || :searchText || '%' OR LastNmae LIKE '%' || :searchText || '%'")
     fun searchEmployee(searchText : String)  : LiveData<List<Employee>>
 }

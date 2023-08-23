@@ -1,5 +1,6 @@
 package com.vmccn.crud.Adapter
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -20,7 +21,9 @@ import com.vmccn.crud.Room.AppDatabase
 import com.vmccn.crud.ViewModel.EmplyeeViewModel
 
 
-class EmployeeListAdapter(val context : Context,val list : ArrayList<Employee> , val db : AppDatabase , val viewModel: EmplyeeViewModel ) : RecyclerView.Adapter<EmployeeListAdapter.ViewHolder>() {
+class EmployeeListAdapter(val context : Context,
+                           val db : AppDatabase, val viewModel: EmplyeeViewModel ) : RecyclerView.Adapter<EmployeeListAdapter.ViewHolder>() {
+    private var list = ArrayList<Employee>()
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val userImage : ImageView =itemView.findViewById(R.id.iv_empImage)
         val userFullName : TextView = itemView.findViewById(R.id.tv_empName)
@@ -32,6 +35,28 @@ class EmployeeListAdapter(val context : Context,val list : ArrayList<Employee> ,
         val deleteEmployee : ImageView = itemView.findViewById(R.id.iv_deleteEmployee)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun setEmployeeList(list : ArrayList<Employee>){
+        this.list = list
+        notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun searchEmployee(searchText : String){
+        if(searchText.isNotEmpty())
+        {
+           val s = list.filter {
+                it.firstName.contains(searchText,true)
+            }
+            setEmployeeList(s as ArrayList<Employee>)
+
+        }
+        else{
+            setEmployeeList(list)
+        }
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.user_adapter,parent,false)
         return ViewHolder(view)
@@ -41,6 +66,7 @@ class EmployeeListAdapter(val context : Context,val list : ArrayList<Employee> ,
         return list.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.userFullName.text = list[position].firstName + " " + list[position].lastName
         if(list[position].image.isEmpty()){
@@ -55,15 +81,26 @@ class EmployeeListAdapter(val context : Context,val list : ArrayList<Employee> ,
         holder.username.text = list[position].username
         holder.userEmail.text = list[position].email
         holder.editEmployee.setOnClickListener(View.OnClickListener {
-            var intent = Intent(context,EditEmployeeActivity::class.java).addFlags(FLAG_ACTIVITY_NEW_TASK)
+            val intent = Intent(context,EditEmployeeActivity::class.java).addFlags(FLAG_ACTIVITY_NEW_TASK)
+            intent.putExtra("id",list[position].uid)
+            intent.putExtra("fname",list[position].firstName)
+            intent.putExtra("lname",list[position].lastName)
+            intent.putExtra("email",list[position].email)
+            intent.putExtra("username",list[position].username)
+            intent.putExtra("accType",list[position].accountType)
+            intent.putExtra("country",list[position].country)
+            intent.putExtra("image",list[position].image)
+            intent.putExtra("contact",list[position].contactNo)
             context.startActivity(intent)
             //(context as Activity).finish()
 
         })
         holder.deleteEmployee.setOnClickListener(View.OnClickListener {
+            val employee : Employee = list[position]
             viewModel.deleteEmployee(db,list[position])
             Toast.makeText(context,"Deleted Successfully",Toast.LENGTH_SHORT).show()
         })
 
     }
+
 }
